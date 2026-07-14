@@ -19,16 +19,19 @@ import { AppHeader, HeuteNicht, KeinStandort, Nacht } from "./states";
 export default function AppScreen({
   state = "liste",
   suggestions,
+  sunrise,
 }: {
   state?: AppState;
   // Echte, gerankte Vorschläge (aus /api/suggestions). Fehlt der Prop, greifen
   // die Mock-Daten — z. B. wenn das Datenfundament nicht erreichbar ist.
   suggestions?: Suggestion[];
+  // Nächster Sonnenaufgang (nur für den Nacht-Zustand).
+  sunrise?: string;
 }) {
   // Ehrliche Sonderzustände statt der Vorschlagsliste.
   if (state === "heute-nicht") return <HeuteNicht />;
   if (state === "kein-standort") return <KeinStandort />;
-  if (state === "nacht") return <Nacht />;
+  if (state === "nacht") return <Nacht sunrise={sunrise} />;
 
   const list = suggestions ?? MOCK_SUGGESTIONS;
 

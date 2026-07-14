@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import { palette, canvas } from "@/lib/tokens";
-import { CloudSunGlyph, MoonGlyph, PinGlyph } from "@/components/glyphs";
+import { CloudSunGlyph, MoonGlyph, PinGlyph, SunGlyph } from "@/components/glyphs";
 
 // Ehrliche Sonderzustände des App-Screens. Ton laut Brief: ruhig, ehrlich, keine
 // Alarmfarben — „lieber ein ehrliches ‚heute nicht' als eine falsche Sicherheit".
@@ -171,8 +171,8 @@ export function KeinStandort() {
 }
 
 // „Nacht" — jetzt ist nichts zu holen. Warmer Dämmerungston, aber fette, große
-// Schrift (kein „Dark Mode mit dünner Schrift").
-export function Nacht() {
+// Schrift (kein „Dark Mode mit dünner Schrift"). Zeigt den nächsten Sonnenaufgang.
+export function Nacht({ sunrise }: { sunrise?: string }) {
   return (
     <Shell background="#241d12" light>
       <MoonGlyph width={60} height={60} color={palette.sicher.hero} />
@@ -180,6 +180,28 @@ export function Nacht() {
       <p style={{ maxWidth: 320, color: "#C8B489", fontSize: 16, margin: 0 }}>
         Sunbreak meldet sich, wenn’s wieder hell wird. Gute Nacht.
       </p>
+      {sunrise && (
+        <div
+          style={{
+            marginTop: 10,
+            display: "flex",
+            alignItems: "center",
+            gap: 9,
+            color: palette.sicher.hero,
+          }}
+        >
+          <SunGlyph width={20} height={20} />
+          <span
+            style={{
+              fontFamily: "var(--font-archivo), sans-serif",
+              fontWeight: 800,
+              fontSize: 19,
+            }}
+          >
+            Wieder aktiv ab {sunrise} Uhr
+          </span>
+        </div>
+      )}
     </Shell>
   );
 }

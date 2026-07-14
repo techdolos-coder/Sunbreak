@@ -6,6 +6,7 @@ import type { Suggestion } from "@/lib/suggestions";
 import { HAMBURG_POIS } from "@/data/pois";
 import { getHamburgForecast } from "@/lib/weather";
 import { rankAll } from "@/lib/engine/ranking";
+import { isNight, nextSunriseLabel } from "@/lib/engine/daylight";
 
 export const metadata: Metadata = {
   title: "Sunbreak — Sonne in deiner Nähe",
@@ -41,8 +42,23 @@ export default async function AppPage({
   searchParams: Promise<SearchParams>;
 }) {
   const sp = toSearchParams(await searchParams);
+  const now = new Date();
   const state = appStateFromParams(sp);
-  if (state !== "liste") return <AppScreen state={state} />;
+
+  // Vorschau-Zustände (?state=) haben Vorrang; Nacht bekommt echten Sonnenaufgang.
+  if (state !== "liste") {
+    return (
+      <AppScreen
+        state={state}
+        sunrise={state === "nacht" ? nextSunriseLabel(now) : undefined}
+      />
+    );
+  }
+
+  // Nacht: Sonne unter dem Horizont → Mond + „wieder aktiv ab …".
+  if (isNight(now)) {
+    return <AppScreen state="nacht" sunrise={nextSunriseLabel(now)} />;
+  }
 
   const suggestions = await computeSuggestions();
   if (suggestions === null) return <AppScreen />; // Fallback: Mock
