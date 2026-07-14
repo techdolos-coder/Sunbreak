@@ -29,8 +29,8 @@ export const canvas = {
 
 export const radius = { card: 11 } as const;
 
-export const DOMAIN_LABEL = "SONNENFENSTER.HAMBURG";
+export const DOMAIN_LABEL = "SUNB.NETLIFY.APP";
 
 // Basis-URL der Web-Landingpage (Artefakt B). Der geteilte Link zeigt hierauf;
-// der Empfänger installiert nichts. Für Dev auf die lokale IP zeigen lassen.
-export const WEB_BASE_URL = "https://sonnenfenster.hamburg";
+// der Empfänger installiert nichts. Bei eigener Domain hier zentral ändern.
+export const WEB_BASE_URL = "https://sunb.netlify.app";

@@ -35,6 +35,6 @@ export const radius = {
   bubble: 14,
 } as const;
 
-// Domain steht bewusst als Konstante: der Marken-Name ist "Sunbreak",
-// die verbreitete Domain bleicht laut Vorgabe (vorerst) SONNENFENSTER.HAMBURG.
-export const DOMAIN_LABEL = "SONNENFENSTER.HAMBURG";
+// Domain-Label auf der Karte. Zeigt vorerst die Live-Deploy-Adresse; bei eigener
+// Domain hier zentral ändern (früherer Platzhalter: SONNENFENSTER.HAMBURG).
+export const DOMAIN_LABEL = "SUNB.NETLIFY.APP";
