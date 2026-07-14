@@ -3,6 +3,8 @@
 [build]
   base = "apps/web"
   command = "npm run build"
+  # relativ zu base -> apps/web/.next; darf NICHT gleich base sein (Next-Plugin).
+  publish = ".next"
 
 [build.environment]
   NODE_VERSION = "20"
