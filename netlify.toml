@@ -1,0 +1,13 @@
+# Netlify-Konfiguration für das Monorepo. Deployt nur die Web-App (apps/web);
+# die native Expo-App (apps/mobile) ist kein Web-Deploy.
+[build]
+  base = "apps/web"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Offizielle Next.js-Runtime: SSR, API-Routen, next/og. Netlify erkennt Next.js
+# meist selbst; hier explizit, damit es deterministisch ist.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

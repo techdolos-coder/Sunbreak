@@ -1,8 +1,6 @@
-import * as SunCalcNS from "suncalc";
-
-// suncalc ist CommonJS (export =). Interop robust auflösen (default oder Namespace).
-const SunCalc = ((SunCalcNS as unknown as { default?: typeof SunCalcNS }).default ??
-  SunCalcNS) as typeof SunCalcNS;
+// suncalc v2 exportiert benannte Funktionen (getPosition ...) — Namespace-Import
+// wie in der offiziellen README.
+import * as SunCalc from "suncalc";
 
 // Sonnenstand über SunCalc (in der Architektur so vorgesehen). Rein astronomisch:
 // hängt nur von Ort + Zeit ab, nicht vom Nutzerstandort — der Server erfährt nie,
