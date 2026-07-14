@@ -1,0 +1,56 @@
+{
+  "expo": {
+    "name": "Sunbreak",
+    "slug": "sunbreak",
+    "version": "0.0.1",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "sunbreak",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "hamburg.sonnenfenster.sunbreak",
+      "appleTeamId": "REPLACE_WITH_APPLE_TEAM_ID",
+      "entitlements": {
+        "com.apple.security.application-groups": [
+          "group.hamburg.sonnenfenster.sunbreak"
+        ]
+      }
+    },
+    "android": {
+      "package": "hamburg.sonnenfenster.sunbreak",
+      "adaptiveIcon": {
+        "backgroundColor": "#DED6C6",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "react-native-android-widget",
+        {
+          "widgets": [
+            {
+              "name": "Sunbreak",
+              "label": "Sunbreak",
+              "description": "Ein Sonnen-Vorschlag, groß.",
+              "minWidth": "250dp",
+              "minHeight": "110dp",
+              "targetCellWidth": 4,
+              "targetCellHeight": 2,
+              "previewImage": "./assets/icon.png",
+              "updatePeriodMillis": 1800000,
+              "resizeMode": "horizontal|vertical"
+            }
+          ]
+        }
+      ],
+      "@bacons/apple-targets"
+    ]
+  }
+}
