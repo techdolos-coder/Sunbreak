@@ -1,0 +1,59 @@
+name: "🐛 Fehler melden"
+description: Etwas funktioniert nicht wie erwartet.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Danke fürs Melden! Je konkreter, desto schneller lässt sich's beheben.
+  - type: textarea
+    id: was-passiert
+    attributes:
+      label: Was passiert?
+      description: Beschreib den Fehler in ein, zwei Sätzen.
+      placeholder: Der Nacht-Zustand erscheint schon um 20 Uhr, obwohl die Sonne noch steht.
+    validations:
+      required: true
+  - type: textarea
+    id: schritte
+    attributes:
+      label: Schritte zum Nachstellen
+      description: Wie kommt man dahin?
+      placeholder: |
+        1. `/app` öffnen
+        2. …
+        3. Fehler tritt auf
+    validations:
+      required: true
+  - type: textarea
+    id: erwartet
+    attributes:
+      label: Was hättest du erwartet?
+    validations:
+      required: true
+  - type: dropdown
+    id: bereich
+    attributes:
+      label: Wo?
+      options:
+        - Web — App-Screen (/app)
+        - Web — Landingpage (/e)
+        - Web — Vorschaukarte (/og)
+        - Web — Daten/Ranking (/api/suggestions)
+        - Mobile — App
+        - Mobile — Widget
+        - Precompute (Python)
+        - Weiß ich nicht
+    validations:
+      required: true
+  - type: input
+    id: umgebung
+    attributes:
+      label: Gerät / Browser
+      description: Nur bei einem sichtbaren Fehler nötig.
+      placeholder: iPhone 14, Safari · oder · Desktop, Firefox
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot / Konsole (optional)
+      description: Bild reinziehen oder Fehlermeldung aus der Konsole einfügen.

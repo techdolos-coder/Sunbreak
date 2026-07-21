@@ -1,0 +1,40 @@
+name: "☀ Idee / Verbesserung"
+description: Ein Vorschlag für Sunbreak.
+labels: ["idee"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Bevor du loslegst: Sunbreak beantwortet **eine** Frage — *wo scheint jetzt
+        Sonne, nah genug zum Losgehen?* Ideen, die diesen einen Screen schärfer
+        machen, sind Gold wert. Ideen, die eine zweite Frage aufmachen (Wetter-App,
+        Social Feed …), passen eher nicht — aber schreib sie trotzdem auf, dann
+        reden wir drüber.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Welches Problem löst das?
+      description: Woran merkt man heute, dass etwas fehlt?
+      placeholder: Wenn ich teile, sieht der Empfänger nicht, wie weit der Weg ist.
+    validations:
+      required: true
+  - type: textarea
+    id: idee
+    attributes:
+      label: Deine Idee
+      description: Was schlägst du vor?
+    validations:
+      required: true
+  - type: checkboxes
+    id: leitplanken
+    attributes:
+      label: Passt zu den Leitplanken?
+      description: Kurz gegengecheckt (siehe CONTRIBUTING.md). Häkchen setzen, wenn's passt.
+      options:
+        - label: Braucht **keinen** Nutzerstandort auf dem Server (Privacy bleibt gewahrt).
+        - label: Kommt mit **einer** Signalfarbe aus (keine zweite Farbe, kein Wetter-App-Look).
+  - type: textarea
+    id: sonst
+    attributes:
+      label: Sonst noch was? (optional)
+      description: Skizze, Referenz, Alternativen.
